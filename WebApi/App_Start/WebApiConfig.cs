@@ -10,6 +10,7 @@ namespace WebApi
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
+            AutofacConfig.Register();
 
             // Web API routes
             config.MapHttpAttributeRoutes();
