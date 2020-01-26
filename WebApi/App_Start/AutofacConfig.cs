@@ -1,7 +1,9 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
+using AutoMapper;
 using System.Reflection;
 using System.Web.Http;
+using WebApi.Profiles;
 
 namespace WebApi
 {
@@ -21,6 +23,14 @@ namespace WebApi
 
         private static void RegisterServices(ContainerBuilder bldr)
         {
+            var config = new MapperConfiguration(cfg =>
+            {
+                cfg.AddProfile(new TestMappingProfile());
+            });
+
+            bldr.RegisterInstance(config.CreateMapper())
+                .As<IMapper>()
+                .SingleInstance();
         }
     }
 }
