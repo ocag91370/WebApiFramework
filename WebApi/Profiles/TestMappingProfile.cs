@@ -13,8 +13,8 @@ namespace WebApi.Profiles
     {
         public TestMappingProfile()
         {
-            CreateMap<TestEntity, TestModel>();
+            CreateMap<TestEntity, TestModel>()
+                .ForMember(c => c.Name, opt => opt.MapFrom(m => $"{m.FirstName} {m.LastName}"));
         }
-
     }
 }
