@@ -12,6 +12,9 @@ namespace WebApi
             // Web API configuration and services
             AutofacConfig.Register();
 
+            // Change case to camel case when returning json
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+
             // Web API routes
             config.MapHttpAttributeRoutes();
 
