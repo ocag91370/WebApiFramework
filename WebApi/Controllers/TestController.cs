@@ -10,6 +10,7 @@ using WebApi.Models;
 
 namespace WebApi.Controllers
 {
+    [RoutePrefix("api/test")]
     public class TestController : ApiController
     {
         private readonly IMapper _mapper;
@@ -19,6 +20,7 @@ namespace WebApi.Controllers
             _mapper = mapper;
         }
 
+        [Route()]
         public IHttpActionResult Get()
         {
             try
